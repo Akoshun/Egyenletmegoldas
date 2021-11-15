@@ -1,0 +1,55 @@
+import math, cmath
+
+def elsofoku():
+    a = int(input("Add meg az a együtthatót: "))
+    b = int(input("Add meg a b együtthatót: "))
+
+    if a != 0:
+        x = -(b/a)
+        print("Megoldás: " + str(x))
+    else:
+        if b != 0:
+            print("Nincs megoldás")
+        else:
+            print("Minden szám megoldás")
+def masodfoku():
+    a= input("\tKérem a másodfokú egyenlet főegyütthatóját: ")
+    a= float(a)
+    while a==0:
+        print("\tEz nem lesz másodfokú egyenlet; nem oldom meg.")
+        a= input("\tKérem a másodfokú egyenlet főegyütthatóját: ")
+        a= float(a)
+ 
+    b= input("\tKérem az elsőfokú tag együtthatóját: ")
+    c= input("\tKérem a konstans tagot: ")
+    b= float(b)
+    c= float(c)
+ 
+    d= b*b-4*a*c
+    print("\tA diszkrimináns értéke", d)
+ 
+    if d>=0:
+        print("\tVan valós megoldás.")
+        x1= (-b-math.sqrt(d))/(2*a)
+        x2= (-b+math.sqrt(d))/(2*a)
+        print("\tAz egyik megoldás", x1)
+        print("\tA másik megoldás", x2)
+    else:
+        print("\tNincs valós megoldás.")
+        x1= (-b-cmath.sqrt(d))/(2*a)
+        x2= (-b+cmath.sqrt(d))/(2*a)
+        print("\tAz egyik megoldás", x1)
+        print("\tA másik megoldás", x2)
+
+print("Milyen típusú egyenletet szeretnél megoldani?")
+print("1 - Elsőfokú")
+print("2 - Másodfokú")
+
+tipus = int(input("Választás: "))
+
+if tipus == 1:
+    elsofoku()
+elif tipus == 2:
+    masodfoku()
+else:
+    print("Nincs ilyen típus")
